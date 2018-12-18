@@ -6,7 +6,7 @@
  */
 const moment = require('moment');
 
-const ANNUNCIO_EMPTY = (date = {
+const ANNUNCIO_EMPTY = date => ({
   immobile: {
     planimetria: {
       dehor: {
