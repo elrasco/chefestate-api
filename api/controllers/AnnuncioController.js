@@ -6,6 +6,22 @@
  */
 const moment = require('moment');
 
+const ANNUNCIO_EMPTY = (date = {
+  immobile: {
+    planimetria: {
+      dehor: {
+        presente: 0
+      },
+      piani: []
+    }
+  },
+  cucina: {},
+  soldi: {},
+  foto: [],
+  status: 'CREATED',
+  title: `annuncio ${moment(date).format('L')}:${moment(date).format('LT')}`
+});
+
 module.exports = {
   find: (req, res) => {
     Annuncio.find().then(annuncio => res.json(annuncio));
@@ -16,8 +32,7 @@ module.exports = {
   },
 
   create: (req, res) => {
-    const d = new Date();
-    Annuncio.create({ status: 'CREATED', title: `annuncio ${moment(d).format('L')}:${moment(d).format('LT')}` })
+    Annuncio.create(ANNUNCIO_EMPTY(new Date()))
       .fetch()
       .then(created => {
         res.send(created);
