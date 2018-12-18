@@ -40,7 +40,7 @@ module.exports.routes = {
   'GET /annunci': 'AnnuncioController.find',
   'GET /annunci/:id': 'AnnuncioController.findOne',
   'POST /annunci': 'AnnuncioController.create',
-  'PUT /annunci': 'AnnuncioController.update',
+  'PUT /annunci/:id': 'AnnuncioController.update',
   'DELETE /annunci/:id': 'AnnuncioController.destroy'
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗

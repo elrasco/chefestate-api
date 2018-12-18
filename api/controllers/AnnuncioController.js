@@ -40,22 +40,11 @@ module.exports = {
   },
 
   update: (req, res) => {
-    const { id, status, data, title } = req.body;
-    let operation;
-    const update = {};
-    if (data) {
-      update.data = data;
-    }
-    if (status) {
-      update.status = status;
-    }
-    if (title) {
-      update.title = title;
-    }
-    if (data) {
-      operation = Annuncio.update({ id }, update).fetch();
-    }
-    operation.then(updated => res.send(updated));
+    const { id } = req.params;
+
+    Annuncio.update({ id }, req.body)
+      .fetch()
+      .then(updated => res.send(updated));
   },
   destroy: (req, res) => {
     Annuncio.destroy(req.params.id).then(destroyed => {
