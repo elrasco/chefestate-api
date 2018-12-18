@@ -10,9 +10,11 @@ module.exports = {
   find: (req, res) => {
     Annuncio.find().then(annuncio => res.json(annuncio));
   },
+
   findOne: (req, res) => {
     Annuncio.find({ id: req.params.id }).then(annuncio => res.json(annuncio));
   },
+
   create: (req, res) => {
     const d = new Date();
     Annuncio.create({ status: 'CREATED', title: `annuncio ${moment(d).format('L')}:${moment(d).format('LT')}` })
@@ -21,6 +23,7 @@ module.exports = {
         res.send(created);
       });
   },
+
   update: (req, res) => {
     const { id, status, data, title } = req.body;
     let operation;
