@@ -15,6 +15,9 @@ const ANNUNCIO_EMPTY = date => ({
       piani: []
     }
   },
+  cannaFumaria: false,
+  cucinaCompleta: false,
+  rate: -1,
   cucina: {},
   soldi: {},
   foto: [],
@@ -28,7 +31,7 @@ module.exports = {
   },
 
   findOne: (req, res) => {
-    Annuncio.find({ id: req.params.id }).then(annuncio => res.json(annuncio));
+    Annuncio.findOne({ id: req.params.id }).then(annuncio => res.json(annuncio));
   },
 
   create: (req, res) => {
