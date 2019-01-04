@@ -13,11 +13,11 @@ const ANNUNCIO_EMPTY = date => ({
         presente: 0
       },
       piani: []
-    }
+    },
+    cannaFumaria: false,
+    cucinaCompleta: false,
+    rate: -1
   },
-  cannaFumaria: false,
-  cucinaCompleta: false,
-  rate: -1,
   cucina: {},
   soldi: {},
   foto: [],
